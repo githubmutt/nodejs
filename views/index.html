@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js GCP </title>
+</head>
+<style>
+table {
+  width: 75%;
+}
+</style>
+
+<body bgcolor="lightblue">
+  <center>
+
+    <h1> Go Seahawks!</h1>
+    <h2>Cabrillo College CS92 SysOps</h2>
+    <h2>Sample node.js application hosted on Google App Platform (GCP) </h2>
+    <h4>For a sample PHP App click here <a href="http://www.phpcabrillo.uw.r.appspot.com">PHP app</a> </h4>
+    <hr/>
+    <table border="0">
+
+</table>
+
+
+<table border="0">
+    <tr><td><h3>Instructions </h3></tr>
+      <tr><td>Follow instructions for php app  to install <a href="http://phpcabrillo.uw.r.appspot.com"> GCP SDK </a>
+        <tr><td>Install node.js on your computer 
+        <tr><td>Download code from github for this <a href="https://github.com/gaewebdesign/nodejscollege"> NodeJs App </tr>
+
+          <tr><td>OR </tr>
+          <tr><td><h2>Create a sample node.js application</h2></tr>
+          <tr><td></tr>
+         <tr> <td>Create a directory to hold node.js files </tr>  
+         <tr> <td><b>npm init</b> ( initializes default nodejs app) </tr>  
+        <tr> <td><b>npm install express </b>(installs node module express ) </tr>  
+     
+       <tr> <td>Create app.js with a express web server in the root directory of the nodejs app  </tr>
+
+</table>
+
+<tabLe border = "0">
+  <tr><td># there may be errors below, preferably use the git depot code as that works</td></tr>
+  <tr><td>'use strict';</td></tr>
+   &nbsp;&nbsp;&nbsp;
+
+    <tr><td>&nbsp;const express = require('express');</td></tr>
+   <tr><td>&nbsp;&nbsp;&nbsp;   const path = require('path');
+  <tr><td>&nbsp;&nbsp;  const app = express();</td></tr>
+   <tr><td>&nbsp;&nbsp;&nbsp;  app.get('/', (req, res) => { </td></tr>
+    <tr><td>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; res.sendFile(path.join(__dirname, 'views', 'index.html'));  </td></tr>
+    
+    <tr><td>&nbsp;  </td></tr>
+
+   <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  const PORT = parseInt(process.env.PORT) || 8080;  </td></tr>
+   <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(`App listening on port ${PORT}`);  </td></tr>
+   <tr><td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log('Press Ctrl+C to quit.');  </td></tr>
+   <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  });  </td></tr>
+   <tr><td>&nbsp; </td></tr>
+   <tr><td>   module.exports = app;  </td></tr>
+   <tr><td>   </td></tr>
+   <tr><td>   </td></tr>
+   <tr><td>   </td></tr>
+   <tr><td>   </td></tr>
+   <tr><td>   </td></tr>
+
+   </table>
+
+   <table border="0">
+    <tr> <td>run application using <b>node app.js</b> Or </tr>
+    <tr> <td><b>npm start</b> if package.json has been modified to support scripts </td> </tr>
+     <tr> <td>view app at http://localhost:8080 </tr></tr>
+
+      <tr> <td><h2>GCloud setup</h2> </tr></tr>
+      <tr> <td>Create app.yaml in the root directory of the nodejs app  </tr>
+
+   </table>
+   <!--
+  
+  const app = express();
+  
+  app.get('/', (req, res) => {
+  //  res.status(200).send('Hello, world!').end();
+    res.sendFile(path.join(__dirname, 'views', 'index.html'));
+   
+  
+  });
+  
+  // Start the server
+  const PORT = parseInt(process.env.PORT) || 8080;
+  app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}`);
+    console.log('Press Ctrl+C to quit.');
+  });
+  // [END gae_node_request_example]
+  
+  module.exports = app;
+-->
+</tabLe>
+
+
+<table border="0">
+<tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;runtime: nodejs20</td> <br>
+<tr>
+<!--
+<tr>
+   <td>&nbsp;&nbsp;&nbsp;&nbsp;runtime_config: </td>
+   <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;operating_system: "ubuntu22"</td>
+   <tr>
+   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document_root: .             &nbsp;</td>
+
+</tr>
+-->
+</table>
+
+<table border="0">
+
+</table>
+
+<center>
+<!--
+<table border="0" align="center">
+<tr><td>  Search for sample app.yaml files </tr>
+<tr><td>Place app.yaml into the root directory of your project (same level as index.php)</td></table>
+</table>
+-->
+<table border="0">
+<tr><td><h3>gcloud commands  </h3></tr>
+ <tr><td>  <b>gcloud auth login</b>   (needed to authenticate via browser)</tr>
+ <tr><td> <b> gcloud config set project &lt;project_id&gt; </b>(select your project)</tr>
+<tr><td> <b> gcloud app deploy</b>  (will upload and instantiate your project)</tr>
+<tr><td>  the first time may ask for region to deploy (ie us-west-1c)</tr>
+<tr><td> from browser go to your project url of the form &lt;project_id&gt;.uw.r.appspsot.com </tr>
+<tr><td>This application is at <a href="http://www.nodejscollege.uw.r.appspot.com/"> http://nodejscollege.uw.r.appspot.com </a>
+</td>
+ 
+</table>
+    
+<table>
+<tr><td><h3>Notes  </h3></tr>
+<tr><td> Once GCP SDK is installed just need to update to get the latest version (<b>gcloud components update</b>)</tr> 
+<tr><td> All development can be done on your local computer </tr> 
+<tr><td> Use preferred text editor on MacOS/Windows/Linux </tr> 
+<tr><td> Use  github to save code </tr> 
+<tr><td> After code changes use <b>gcloud app update</b> to upload to App Engine </tr> 
+<tr><td> Sometimes will need to re-authenticate using <b>gcloud auth login </b></tr> 
+<tr><td> By changing the &lt;project_id&gt; a single code base can be uploaded to different projects (URLs) 
+ and wiping out that project </tr> 
+ <tr><td> Make sure to set the appropriate &lt;project_id&gt;  <b>gcloud config set project &lt project_id &gt;</b></tr> 
+ <tr><td> Otherwise you will need to go to that project source and re-set the project_id and deploy again </tr> 
+ <tr><td> &nbsp;  </tr>  
+ <tr><td> &nbsp;  </tr>  
+ <tr><td> &nbsp;  </tr>  
+   
+</table>
+
+
+</body>
+</html>
